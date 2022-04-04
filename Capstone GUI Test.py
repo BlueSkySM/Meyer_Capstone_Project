@@ -17,6 +17,17 @@ def importfunction():
     functiondisplay.itemconfig(parsefile, text = file)
     return
 
+"""
+To do list:
+1. Break code into lines
+2. Make line select GUI element
+3. integrate line select functionality 
+4. edit importfunction to implement parser 
+5. get and implement parser 
+6. ??? 
+7. Pray to god i graduate 
+"""
+
 #declare GUI object
 import tkinter as tk
 parsegui = tk.Tk()
