@@ -14,8 +14,17 @@ def importfunction():
     global file
     filer = open("dummycode.py")
     file = filer.read()
-    functiondisplay.itemconfig(parsefile, text = file)
+    dfile = dictfile(file)
+    functiondisplay.itemconfig(parsefile, text = dfile.values())
     return
+
+#turns file into dictionary of each line
+def dictfile(file):
+    dfile = {}
+    for line_number, line in enumerate(file):
+        dfile[line_number] = line
+    print(dfile)
+    return dfile
 
 """
 To do list:
