@@ -6,13 +6,17 @@ Senior Capstone Project
 
 Wisconsin Lutheran College
 """
+import tkinter as tk
+from tkinter import filedialog as fd
+
 global file
 file = ""
 
 #imports file and updates canvas
 def importfunction():
     global file
-    filer = open("dummycode.py")
+    #filer = open("dummycode.py")
+    filer = fd.askopenfile()
     file = filer.read()
     dfile = dictfile(file)
     functiondisplay.itemconfig(parsefile, text = dfile.values())
@@ -38,7 +42,7 @@ To do list:
 """
 
 #declare GUI object
-import tkinter as tk
+
 parsegui = tk.Tk()
 parsegui.title("Function Parsing Capstone Program Thing")
 
@@ -47,21 +51,33 @@ openbutton = tk.Button(parsegui, text = 'open', width = 25, command = importfunc
 openbutton.pack()
 
 #function display canvas
-functiondisplay = tk.Canvas(parsegui, width=400, height=400)
+functiondisplay = tk.Canvas(parsegui, width=800, height=400)
 functiondisplay.pack()
-canvas_height=20
-canvas_width=400
-y = int(canvas_height / 2)
-#functiondisplay.create_line(0, y, canvas_width, y )
+# canvas_height=20
+# canvas_width=400
+# y = int(canvas_height / 2)
+# #functiondisplay.create_line(0, y, canvas_width, y )
 parsefile = functiondisplay.create_text(200,300, text = file)
 
+#ui element for line select goes here 
+
 #select previous line button
-upbutton = tk.Button(parsegui, text = '/\\', width = 100, )
+upbutton = tk.Button(parsegui, text = '/\\' )
 upbutton.pack()
 #select next line button
-downbutton = tk.Button(parsegui, text = '\\/', width = 100, )
+downbutton = tk.Button(parsegui, text = '\\/' )
 downbutton.pack()
 
+#ui element for text insertion goes here
+commentbox = tk.Entry(parsegui)
+commentbox.pack()
 
+#ui element for text insertion commit goes here
+commentbutton = tk.Button(parsegui, text = "Add Comment")
+commentbutton.pack()
+
+#ui element for selecting next function goes here
+nextfunction = tk.Button(parsegui, text = "Next Function >")
+nextfunction.pack()
 
 parsegui.mainloop()
