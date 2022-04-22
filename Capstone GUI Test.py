@@ -16,16 +16,19 @@ file = ""
 def importfunction():
     global file
     #filer = open("dummycode.py")
-    filer = fd.askopenfile()
-    file = filer.read()
-    dfile = dictfile(file)
+    file = fd.askopenfilename()
+    with open(file, 'r') as f:
+        lines = f.readlines()
+    print(lines)
+    #file = filer.read()
+    dfile = dictfile(lines)
     functiondisplay.itemconfig(parsefile, text = dfile.values())
     return
 
 #turns file into dictionary of each line
-def dictfile(file):
+def dictfile(lines):
     dfile = {}
-    for line_number, line in enumerate(file):
+    for line_number, line in enumerate(lines):
         dfile[line_number] = line
     print(dfile)
     return dfile
