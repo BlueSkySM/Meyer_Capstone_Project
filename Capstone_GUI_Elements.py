@@ -8,14 +8,15 @@ Wisconsin Lutheran College
 """
 
 import tkinter as tk
-from Capstone_GUI_Functions import *
+from Capstone_GUI_Functions import importfile, file
+#from Capstone_GUI_Functions import file
 
 
 #runs file open and sets values not included in Capstone_GUI_Functions
-def importfunction():
+"""def importfunction():
     dfile = importfile()
     functiondisplay.itemconfig(parsefile, text = dfile.values())
-
+"""
 
 #declare GUI object
 
@@ -28,7 +29,7 @@ functiondisplay.pack()
 parsefile = functiondisplay.create_text(200,300, text = file)
 
 #import file button
-openbutton = tk.Button(parsegui, text = 'open', width = 25, command = importfunction)
+openbutton = tk.Button(parsegui, text = 'open', width = 25, command = importfile)
 openbutton.pack()
 
 

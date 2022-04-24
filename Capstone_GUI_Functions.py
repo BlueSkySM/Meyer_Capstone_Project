@@ -6,6 +6,8 @@ Senior Capstone Project
 
 Wisconsin Lutheran College
 """
+
+import Capstone_GUI_Elements
 from tkinter import filedialog as fd
 
 global file
@@ -21,7 +23,7 @@ def importfile():
     print(lines)
     #file = filer.read()
     dfile = dictfile(lines)
-    #functiondisplay.itemconfig(parsefile, text = dfile.values())
+    Capstone_GUI_Elements.functiondisplay.itemconfig(Capstone_GUI_Elements.parsefile, text = dfile.values())
     return dfile
 
 #turns file into dictionary of each line
