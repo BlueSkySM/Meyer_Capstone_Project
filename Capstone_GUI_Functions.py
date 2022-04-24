@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 24 13:27:44 2022
+Samuel Meyer
 
-@author: samme
+Senior Capstone Project
+
+Wisconsin Lutheran College
 """
 from tkinter import filedialog as fd
 

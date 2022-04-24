@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 24 13:56:06 2022
+Samuel Meyer
 
-@author: samme
+Senior Capstone Project
 
+Wisconsin Lutheran College
 """
 
 from Capstone_GUI_Elements import *
