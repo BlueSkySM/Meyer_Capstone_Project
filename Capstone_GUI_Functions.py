@@ -8,7 +8,7 @@ Wisconsin Lutheran College
 """
 
 import Capstone_GUI_Elements
-from tkinter import filedialog as fd
+from tkinter import filedialog as fd, END
 
 global file
 file = ""
@@ -23,7 +23,9 @@ def importfile():
     print(lines)
     #file = filer.read()
     dfile = dictfile(lines)
-    Capstone_GUI_Elements.functiondisplay.itemconfig(Capstone_GUI_Elements.parsefile, text = dfile.values())
+    for value in dfile.values():
+        Capstone_GUI_Elements.functiondisplay.insert(END, value + "\n")
+    #Capstone_GUI_Elements.functiondisplay.itemconfig(Capstone_GUI_Elements.parsefile, text = dfile.values())
     return dfile
 
 #turns file into dictionary of each line

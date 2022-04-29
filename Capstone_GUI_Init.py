@@ -10,4 +10,5 @@ Wisconsin Lutheran College
 from Capstone_GUI_Elements import *
 from Capstone_GUI_Functions import *
 
-parsegui.mainloop()
+if __name__ == "__main__":
+    parsegui.mainloop()

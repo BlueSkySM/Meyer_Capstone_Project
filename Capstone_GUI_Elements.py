@@ -8,6 +8,7 @@ Wisconsin Lutheran College
 """
 
 import tkinter as tk
+from tkinter import *
 from Capstone_GUI_Functions import importfile, file
 #from Capstone_GUI_Functions import file
 
@@ -24,12 +25,14 @@ parsegui = tk.Tk()
 parsegui.title("Function Parsing Capstone Program Thing")
 
 #function display canvas
-functiondisplay = tk.Canvas(parsegui, width=800, height=400)
+functiondisplay = tk.Text(parsegui, width=40, height=20)
 functiondisplay.pack()
-parsefile = functiondisplay.create_text(200,300, text = file)
+#parsefile = functiondisplay.create_text(200,300, text = file)
 
 #import file button
+
 openbutton = tk.Button(parsegui, text = 'open', width = 25, command = importfile)
+
 openbutton.pack()
 
 
