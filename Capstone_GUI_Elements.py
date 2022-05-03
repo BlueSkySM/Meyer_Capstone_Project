@@ -57,3 +57,4 @@ commentbutton.pack()
 nextfunction = tk.Button(parsegui, text = "Next Function >")
 nextfunction.pack()
 
+savebutton = tk.Button(parsegui, text = "Save file" )
