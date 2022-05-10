@@ -10,9 +10,13 @@ Wisconsin Lutheran College
 import Capstone_GUI_Elements
 from tkinter import filedialog as fd, END
 from collections import deque
+from time import sleep
 
 global file
 global sfile
+global index
+global nextPressed
+nextPressed = False
 file = ""
 sfile = ""
 
@@ -44,13 +48,18 @@ def importfile():
         print(line)
         
         if line.startswith("def"):
-            fsubdeque = deque(line)
-            while not "return" in line:
+            flist = []
+            while True:
+                #test print
+                print(line)
+                
+                flist.append(line)
+                
+                if "return" in line:
+                    break
                 line = dfile.popleft()
-                fsubdeque.append(line)
-            
-            print(fsubdeque)
-            dictfunction(fsubdeque)
+            #print(fsubdeque)
+            dictfunction(flist)
         else:
             #Capstone_GUI_Elements.functiondisplay.insert(END, line)
             sfile += line
@@ -60,20 +69,43 @@ def importfile():
     return
 
 
+def nextButtonPress():
+    #signifies that the Next Function button has been pressed 
+    global nextPressed
+    nextPressed = True
+    return
+
 def dequefile(lines):
     #turns file into deque so it can be popped off as it iterates
     dfile = deque(lines)
     #test print
-    print(dfile)
+    #print(dfile)
     return dfile
 
-def dictfunction(subdeque):
-    #creates a dictionary of function contents from subdeque
+def dictfunction(flines):
+    #pushes the contents of the function to the GUI
     #allows manipulating until next function button is pressed
-    Capstone_GUI_Elements.functiondisplay.insert(END, subdeque)
-    return
+    global nextPressed
+    dfunc = dequefile(flines)
+    while nextPressed == False:
+    
+        
+        updateCanvas(dfunc)
+        sleep(5)
 
+    if nextPressed == True:
+        #clear canvas and changes value to ready next function
+        Capstone_GUI_Elements.functiondisplay.delete("1.0", "end")
+        nextPressed = False
+        return
+
+def updateCanvas(dlines):
+    Capstone_GUI_Elements.functiondisplay.delete("1.0", "end")
+    for line in dlines:
+        #line = dfunc.popleft()
+        Capstone_GUI_Elements.functiondisplay.insert(END, line)
+    
 
 def savefile(dfile):
-    
+    #creates new file from saved results using filedialog 
     return

@@ -9,7 +9,7 @@ Wisconsin Lutheran College
 
 import tkinter as tk
 from tkinter import *
-from Capstone_GUI_Functions import importfile, file
+from Capstone_GUI_Functions import importfile, file, nextButtonPress
 #from Capstone_GUI_Functions import file
 
 
@@ -54,7 +54,7 @@ commentbutton = tk.Button(parsegui, text = "Add Comment")
 commentbutton.pack()
 
 #ui element for selecting next function goes here
-nextfunction = tk.Button(parsegui, text = "Next Function >")
+nextfunction = tk.Button(parsegui, text = "Next Function >", command = nextButtonPress)
 nextfunction.pack()
 
 savebutton = tk.Button(parsegui, text = "Save file" )
