@@ -47,6 +47,10 @@ lines create deque
 create output file
 start loop 
 
+
+NO LOOP!!!!!!!!!!!!!!!!!
+
+
 while not end of deque
 insert line into output
 if function definition
