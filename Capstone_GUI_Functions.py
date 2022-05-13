@@ -75,7 +75,8 @@ def parsefunc():
         else:
             #Capstone_GUI_Elements.functiondisplay.insert(END, line)
             sfile += line
-            print(sfile)
+            #test print
+            #print(sfile)
     
     Capstone_GUI_Elements.functiondisplay.delete("1.0", "end")
     Capstone_GUI_Elements.functiondisplay.insert(END, "End of File")
@@ -141,12 +142,12 @@ def nextPress():
         line = dfunc.popleft()
         sfile += line
     
-    print(sfile)
+    #print(sfile)
     parsefunc()
     return
 
 def updateIndex():
-    Capstone_GUI_Elements.indexlabel['text'] = "Current Line: " + str(index)
+    Capstone_GUI_Elements.indexlabel['text'] = "Current Line: " + str(index+1)
     return
 
 
@@ -180,6 +181,9 @@ def savefile():
     #creates new file from saved results using filedialog
     global sfile
     file = fd.asksaveasfile(defaultextension=".py", filetypes=[("Python File",".py")])
+    if not file:
+        Capstone_GUI_Elements.parsegui.destroy()
+        return
     file.write(sfile)
     file.close()
     Capstone_GUI_Elements.parsegui.destroy()
